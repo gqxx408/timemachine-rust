@@ -1,0 +1,35 @@
+[package]
+name = "tm-rust"
+version = "2.0.0"
+edition = "2021"
+rust-version = "1.75"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+tokio-util = { version = "0.7", features = ["io"] }
+sqlx = { version = "0.8", features = ["runtime-tokio", "sqlite", "mysql", "macros", "chrono"] }
+clap = { version = "4", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+blake3 = "1"
+md-5 = "0.10"
+jwalk = "0.8"
+rayon = "1"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+thiserror = "1"
+anyhow = "1"
+indicatif = "0.17"
+chrono = { version = "0.4", features = ["serde"] }
+async-trait = "0.1"
+hex = "0.4"
+serde_json = "1"
+eframe = "0.36"
+egui = "0.36"
+rfd = "0.17"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+strip = true

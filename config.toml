@@ -1,0 +1,18 @@
+[database]
+# SQLite 内嵌模式 (推荐) 或 mysql://user:pass@host:port/timemachine
+url = "sqlite://data/timemachine.db?mode=rwc"
+max_connections = 4
+
+[backup]
+hash_algo = "blake3"       # blake3 | md5
+scan_threads = 0           # 0 = 自动 (CPU 核心数)
+copy_concurrency = 4       # 并发拷贝数
+skip_hidden = true         # 跳过 . 开头文件
+
+[network]
+listen_addr = "0.0.0.0:7878"  # server 模式监听地址
+chunk_size = 65536             # 网络传输块大小 (bytes)
+
+[logging]
+level = "info"             # trace | debug | info | warn | error
+format = "console"         # console | json
